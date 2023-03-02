@@ -4,12 +4,36 @@
 
 
 USE `KATZENJAMMER`;
--- TODO: Q1
- SELECT b.Firstname, ??????
-SELECT *
+-- Q1
+(SELECT MIN(b.Firstname) AS Firstname, COUNT(DISTINCT i.Song) AS Bass
 FROM Instruments AS i, Band AS b
 WHERE i.Bandmate = b.Id
-    AND i.Instrument = 'bass balalaika';
+    AND b.Id = 1
+    AND i.Instrument = 'bass balalaika')
+
+UNION
+
+(SELECT MIN(b.Firstname) AS Firstname, COUNT(DISTINCT i.Song) AS Bass
+FROM Instruments AS i, Band AS b
+WHERE i.Bandmate = b.Id
+    AND b.Id = 2
+    AND i.Instrument = 'bass balalaika')
+
+UNION
+
+(SELECT MIN(b.Firstname) AS Firstname, COUNT(DISTINCT i.Song) AS Bass
+FROM Instruments AS i, Band AS b
+WHERE i.Bandmate = b.Id
+    AND b.Id = 3
+    AND i.Instrument = 'bass balalaika')
+
+UNION
+
+(SELECT MIN(b.Firstname) AS Firstname, COUNT(DISTINCT i.Song) AS Bass
+FROM Instruments AS i, Band AS b
+WHERE i.Bandmate = b.Id
+    AND b.Id = 4
+    AND i.Instrument = 'bass balalaika');
 
 
 USE `KATZENJAMMER`;
